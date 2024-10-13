@@ -12,7 +12,7 @@ function App() {
   return (
     <>
     <div style={{ height: "100vh", width: "100vw", background: "#2d405f" }}>
-      <Router>
+      <Router basename="/engageappreact">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route element={<PrivateRouter isAuthenticated={isAuthenticated}/>}>
