@@ -7,7 +7,7 @@ import LandingPage from "./components/LandingPage";
 
 function App() {
 
-  const {  isAuthenticated } = useAuth0()
+  const {  isAuthenticated} = useAuth0()
   console.log("auth is "+ isAuthenticated)
   return (
     <>
