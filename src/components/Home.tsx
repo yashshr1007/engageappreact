@@ -37,7 +37,7 @@ const Home = () => {
     const {getAccessTokenSilently} = useAuth0()
     const getToken = getAccessTokenSilently({authorizationParams:{
       audience: "AiEngageApi",
-      scope: "read:current_user",
+      scope: "openid profile email read:current_user",
     },})
     getToken.then((token) => console.log(token))
   return (
