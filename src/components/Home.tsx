@@ -4,7 +4,7 @@ import AppFooter from "./AppFooter"
 import Leaderboard from "./Leaderboard"
 import EmployeeComment from "./HomeComponents/EmployeeComment"
 import { useAuth0 } from "@auth0/auth0-react"
-// import  Auth0AccessToken  from "../services/Auth0AccessToken"
+
 const layoutStyle1 = {
   borderRadius: 8,
   overflow: 'hidden',
@@ -35,7 +35,7 @@ const list = [{"title":"abc1", "description":"abc description", "ipath":"https:/
 const Home = () => {
     const {Content} = Layout
     const {getAccessTokenSilently} = useAuth0()
-    const getToken = getAccessTokenSilently({authorizationParams: {
+    const getToken = getAccessTokenSilently({authorizationParams:{
       audience: "AiEngageApi",
       scope: "read:current_user",
     },})
