@@ -3,10 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 const Auth0AccessToken = () => {
     const {getAccessTokenSilently} = useAuth0()
     const getToken = async () => {
-        const accessToken = await getAccessTokenSilently({
-            audience: "",
-            scope: "",
-        })
+        const accessToken = await getAccessTokenSilently({ })
         return accessToken
     }
     return getToken   
