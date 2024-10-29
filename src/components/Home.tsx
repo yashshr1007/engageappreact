@@ -39,8 +39,8 @@ function getComments(): Promise<EmployeeComments[]> {
 }
 
 
-const Home : React.FC = () => {
-    const [value, setValue] = useState(Array);
+const Home : React.FC<EmployeeComments> = () => {
+    const [value, setValue] = useState<EmployeeComments[]>([]);
     const {getAccessTokenSilently} = useAuth0()
     const getToken = getAccessTokenSilently({authorizationParams:{
       audience: "AiEngageApi",
