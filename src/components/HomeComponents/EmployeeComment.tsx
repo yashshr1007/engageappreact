@@ -1,11 +1,15 @@
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Layout } from 'antd';
+import { ArrowDownOutlined } from '@ant-design/icons';
+import { Avatar, Card, Divider, Layout } from 'antd';
 const { Meta } = Card;
-const layoutStyle = {
-  borderRadius: 8,
-  overflow: 'hidden',
-  width: 'calc(80% - 8px)',
-  maxWidth: 'calc(80% - 8px)',
+
+const layoutStyle: React.CSSProperties = {
+  textAlign: 'center',
+  backgroundColor: '#50516a',
+  padding: 20,
+}
+
+const imageStyle: React.CSSProperties = {
+  height: '400px'
 }
 
 interface EmployeeCommentProps {
@@ -16,16 +20,16 @@ const EmployeeComment: React.FC<EmployeeCommentProps> = ({employee}) => {
   return (
     <Layout style={layoutStyle}>
   <Card
+    title= {employee.title}
     cover={
       <img
         alt="example"
+        style={imageStyle}
         src={employee.ipath}
       />
     }
     actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
+      <ArrowDownOutlined key="Details" name='Details'/>,
     ]}
   >
     <Meta
@@ -34,6 +38,7 @@ const EmployeeComment: React.FC<EmployeeCommentProps> = ({employee}) => {
       description={employee.description}
     />
   </Card>
+  <Divider orientation="left" style={{color: '#b34d20'}}/>
   </Layout>
 )
 }

@@ -1,6 +1,7 @@
 import AppHeader from "./AppHeader"
 import AppFooter from "./AppFooter"
 import { Flex, Layout } from "antd"
+import Leaderboard from "./Leaderboard"
 
 const layoutStyle1 = {
   borderRadius: 8,
@@ -21,7 +22,7 @@ const contentStyle: React.CSSProperties = {
   minHeight: 800,
   lineHeight: '120px',
   color: '#fff',
-  backgroundColor: '#0958d9',
+  backgroundColor: '#62cef3',
 }
 
 const History = () => {
@@ -33,7 +34,7 @@ const History = () => {
         <Content style={contentStyle}>
 history content
     </Content><AppFooter /></Layout><Layout style={layoutStyle2}>
-      <Content style={contentStyle}>This is history</Content>
+      <Content style={contentStyle}><Leaderboard /></Content>
      
       </Layout></Flex>)
 }

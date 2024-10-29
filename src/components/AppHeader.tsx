@@ -9,7 +9,7 @@ const headerStyle: React.CSSProperties = {
   height: 64,
   paddingInline: 48,
   lineHeight: '64px',
-  backgroundColor: '#4096ff',
+  backgroundColor: '#62cef3',
 }
 
 const menuStyle: React.CSSProperties = {
@@ -18,7 +18,7 @@ const menuStyle: React.CSSProperties = {
   height: 64,
   paddingInline: 48,
   lineHeight: '64px',
-  backgroundColor: '#4096ff',
+  backgroundColor: '#62cef3',
 }
 
 const AppHeader = () => {

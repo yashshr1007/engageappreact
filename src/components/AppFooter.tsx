@@ -3,7 +3,7 @@ import {Layout} from 'antd'
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
   color: '#fff',
-  backgroundColor: '#4096ff',
+  backgroundColor: '#62cef3',
 }
 
 const AppFooter = () => {

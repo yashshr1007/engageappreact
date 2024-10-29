@@ -8,7 +8,6 @@ import LandingPage from "./components/LandingPage";
 function App() {
 
   const {  isAuthenticated} = useAuth0()
-  console.log("auth is "+ isAuthenticated)
   return (
     <>
     <div style={{ height: "100vh", width: "100vw", background: "#2d405f" }}>
