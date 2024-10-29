@@ -1,5 +1,5 @@
 import { ArrowDownOutlined } from '@ant-design/icons';
-import { Avatar, Card, Divider, Layout } from 'antd';
+import { Avatar, Card, Layout } from 'antd';
 const { Meta } = Card;
 
 const layoutStyle: React.CSSProperties = {
@@ -38,7 +38,6 @@ const EmployeeComment: React.FC<EmployeeCommentProps> = ({employee}) => {
       description={employee.description}
     />
   </Card>
-  <Divider orientation="left" style={{color: '#b34d20'}}/>
   </Layout>
 )
 }
