@@ -26,20 +26,19 @@ const contentStyle: React.CSSProperties = {
   alignItems: 'center'
 }
 
-interface EmployeeComments {
-  ipath:string
-  description:string 
-  title:string
-}
-
-function getComments(): Promise<EmployeeComments[]> {
-  // For now, consider the data is stored on a static `users.json` file
-  return fetch('https://engageapi-1.onrender.com/api/v1/home', {headers:{'Authorization': 'Bearer Token' }})
-  .then(res => res.json()).then(response => {return response as EmployeeComments[]})
-}
+// function getComments(): Promise<EmployeeComments[]> {
+//   // For now, consider the data is stored on a static `users.json` file
+//   return fetch('https://engageapi-1.onrender.com/api/v1/home', {headers:{'Authorization': 'Bearer Token' }})
+//   .then(res => res.json()).then(response => {return response as EmployeeComments[]})
+// }
 
 
-const Home : React.FC<EmployeeComments> = () => {
+const Home : React.FC = () => {
+  interface EmployeeComments {
+    ipath:string
+    description:string 
+    title:string
+  }
     const [value, setValue] = useState<EmployeeComments[]>([]);
     const {getAccessTokenSilently} = useAuth0()
     const getToken = getAccessTokenSilently({authorizationParams:{
