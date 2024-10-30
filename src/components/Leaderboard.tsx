@@ -1,6 +1,6 @@
-import { Divider, Layout, List } from "antd"
+import { Card, Divider, List } from "antd"
 
-const layoutStyle: React.CSSProperties = {
+const cardStyle: React.CSSProperties = {
   textAlign: 'center',
   backgroundColor: '#62cef3',
   padding: 20,
@@ -12,7 +12,7 @@ const data = [
   'Aman',
   'Yash',
   'Kandpal',
-];
+]
 
 const data2 = [ 
   'Yash',
@@ -20,23 +20,24 @@ const data2 = [
   'Aman',
   'Harish',
   'Vivek',
-];
+]
 
 const data3 = [ 
   'Sent an appreciation to Vivek',
   'Received appreciation from Harish',
   'Redeemed 4300 points',
-];
+]
+
 const Leaderboard = () => {
 
-  return (<Layout style={layoutStyle}>
+  return (<Card style={cardStyle}>
     <List
       header='Recent events for you'
       bordered
       dataSource={data3}
       renderItem={(item) => <List.Item>{item}</List.Item>}
     />
-     <Divider />
+    <Divider />
     <List
       header='Top Appreciators'
       bordered
@@ -50,7 +51,7 @@ const Leaderboard = () => {
       dataSource={data2}
       renderItem={(item) => <List.Item>{item}</List.Item>}
     />
-  </Layout>)
+    </Card>)
 }
 
 export default Leaderboard

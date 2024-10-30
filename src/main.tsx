@@ -10,8 +10,8 @@ createRoot(document.getElementById('root')!).render(
     domain="dev-iokf2trnw2yqo6zu.us.auth0.com"
     clientId="lsv3Yt6QcgRFDsbUJgTSDk5cypl3ZnaR"
     authorizationParams={{
-      redirect_uri: "https://yashshr1007.github.io/engageappreact"
-      //redirect_uri: "http://localhost:5173/engageappreact"
+      //redirect_uri: "https://yashshr1007.github.io/engageappreact"
+      redirect_uri: "http://localhost:5173/engageappreact"
     }}
   >
     <App />

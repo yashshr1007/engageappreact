@@ -1,10 +1,10 @@
 import { ArrowDownOutlined } from '@ant-design/icons';
-import { Avatar, Card, Layout } from 'antd';
+import { Avatar, Card } from 'antd';
 const { Meta } = Card;
 
 const layoutStyle: React.CSSProperties = {
   textAlign: 'center',
-  backgroundColor: '#50516a',
+  backgroundColor: '#f0803b',
   padding: 20,
 }
 
@@ -18,8 +18,7 @@ interface EmployeeCommentProps {
 
 const EmployeeComment: React.FC<EmployeeCommentProps> = ({employee}) => {
   return (
-    <Layout style={layoutStyle}>
-  <Card
+  <Card style={layoutStyle}
     title= {employee.title}
     cover={
       <img
@@ -38,7 +37,6 @@ const EmployeeComment: React.FC<EmployeeCommentProps> = ({employee}) => {
       description={employee.description}
     />
   </Card>
-  </Layout>
 )
 }
 export default EmployeeComment;

@@ -1,4 +1,4 @@
-import { Flex, Layout} from "antd"
+import { Button, Flex, Layout} from "antd"
 import AppHeader from "./AppHeader"
 import AppFooter from "./AppFooter"
 import Leaderboard from "./Leaderboard"
@@ -6,7 +6,7 @@ import EmployeeComment from "./HomeComponents/EmployeeComment"
 import { useAuth0 } from "@auth0/auth0-react"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { BrowserView, isBrowser } from 'react-device-detect';
+import { BrowserView, isBrowser } from 'react-device-detect'
 
 let layoutStyle1 = {}
 if(isBrowser){
@@ -49,27 +49,37 @@ const Home : React.FC = () => {
     description:string 
     title:string
   }
-    const [value, setValue] = useState<EmployeeComments[]>([]);
+    const [value, setValue] = useState<EmployeeComments[]>([])
+    const [isLoading, setIsLoading] = useState(true)
     const {getAccessTokenSilently} = useAuth0()
     const getToken = getAccessTokenSilently({authorizationParams:{
       audience: "AiEngageApi",
       scope: "read:posts write:posts",
     },})
     useEffect(() => {
-      getToken.then((token) => axios.get('https://engageapi-1.onrender.com/api/v1/home', {headers:{'Authorization': 'Bearer '+token }}).then(response => setValue(response.data))
+      getToken.then((token) => axios.get('https://engageapi-1.onrender.com/api/v1/home', {headers:{'Authorization': 'Bearer '+token }}).then(response => {setValue(response.data);
+        setIsLoading(false);
+      })
     )
     }, [])
     const {Content} = Layout
   return (
-    <Flex gap="middle" wrap>
+    <Layout>
+      <div hidden={!isLoading}>
+      <Layout>
+         <Button>This is loading...</Button>
+      </Layout>
+      </div>
+      <div hidden={isLoading}>
+      <AppHeader/>
+      <Content style={contentStyle}>
+      <Flex gap="middle" vertical={false}>
     <Layout style={layoutStyle1}>
-        <AppHeader/>
-        <Content style={contentStyle}>
 {value.map(emp => <EmployeeComment employee={emp}/>)}
-    </Content><AppFooter /></Layout><BrowserView style={layoutStyle2}><Layout>
-      <Content style={contentStyle}><Leaderboard /></Content>
-    
-      </Layout></BrowserView></Flex>)
+    </Layout>
+    <Layout style={layoutStyle2}><BrowserView>
+      <Leaderboard />
+      </BrowserView></Layout></Flex></Content><AppFooter /></div></Layout>)
 }
 
 export default Home
