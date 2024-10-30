@@ -6,11 +6,21 @@ import EmployeeComment from "./HomeComponents/EmployeeComment"
 import { useAuth0 } from "@auth0/auth0-react"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { BrowserView, isBrowser } from 'react-device-detect';
 
-const layoutStyle1 = {
+let layoutStyle1 = {}
+if(isBrowser){
+layoutStyle1 = {
   overflow: 'hidden',
   width: 'calc(70% - 8px)',
   maxWidth: 'calc(70% - 8px)',
+}
+} else {
+layoutStyle1 = {
+  overflow: 'hidden',
+  width: 'calc(100% - 8px)',
+  maxWidth: 'calc(100% - 8px)',
+}
 }
 
 const layoutStyle2 = {
@@ -56,10 +66,10 @@ const Home : React.FC = () => {
         <AppHeader/>
         <Content style={contentStyle}>
 {value.map(emp => <EmployeeComment employee={emp}/>)}
-    </Content><AppFooter /></Layout><Layout style={layoutStyle2}>
+    </Content><AppFooter /></Layout><BrowserView style={layoutStyle2}><Layout>
       <Content style={contentStyle}><Leaderboard /></Content>
     
-      </Layout></Flex>)
+      </Layout></BrowserView></Flex>)
 }
 
 export default Home
