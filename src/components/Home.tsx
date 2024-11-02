@@ -6,21 +6,17 @@ import EmployeeComment from "./HomeComponents/EmployeeComment"
 import { useAuth0 } from "@auth0/auth0-react"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { BrowserView, isBrowser } from 'react-device-detect'
+import { BrowserView, MobileView } from 'react-device-detect'
 
-let layoutStyle1 = {}
-if(isBrowser){
-layoutStyle1 = {
+const layoutStyleBrowser = {
   overflow: 'hidden',
   width: 'calc(70% - 8px)',
   maxWidth: 'calc(70% - 8px)',
 }
-} else {
-layoutStyle1 = {
+const layoutStyleMobile = {
   overflow: 'hidden',
   width: 'calc(100% - 8px)',
   maxWidth: 'calc(100% - 8px)',
-}
 }
 
 const layoutStyle2 = {
@@ -32,7 +28,7 @@ const layoutStyle2 = {
 const contentStyle: React.CSSProperties = {
   textAlign: 'center',
   color: '#fff',
-  backgroundColor: '#62cef3',
+  backgroundColor: '#8b4282',
   alignItems: 'center'
 }
 
@@ -41,8 +37,6 @@ const contentStyle: React.CSSProperties = {
 //   return fetch('https://engageapi-1.onrender.com/api/v1/home', {headers:{'Authorization': 'Bearer Token' }})
 //   .then(res => res.json()).then(response => {return response as EmployeeComments[]})
 // }
-
-
 const Home : React.FC = () => {
   interface EmployeeComments {
     ipath:string
@@ -74,12 +68,15 @@ const Home : React.FC = () => {
       <AppHeader/>
       <Content style={contentStyle}>
       <Flex gap="middle" vertical={false}>
-    <Layout style={layoutStyle1}>
+      <BrowserView>
+    <Layout style={layoutStyleBrowser}>
 {value.map(emp => <EmployeeComment employee={emp}/>)}
     </Layout>
-    <Layout style={layoutStyle2}><BrowserView>
+    <Layout style={layoutStyle2}>
       <Leaderboard />
-      </BrowserView></Layout></Flex></Content><AppFooter /></div></Layout>)
+      </Layout></BrowserView><MobileView>    <Layout style={layoutStyleMobile}>
+{value.map(emp => <EmployeeComment employee={emp}/>)}
+    </Layout></MobileView></Flex></Content><AppFooter /></div></Layout>)
 }
 
 export default Home
